@@ -193,7 +193,7 @@ async def on_message(message):
                 "`!resetnotificacao` - Reseta o estado das notificações para reenviar.\n"
                 "`!estado` - Mostra as lives atuais notificadas.\n"
                 "`!contribuir` - Mostra o email onde podes contribuir para a causa financeira do bot.\n"
-                "`!help` - Mostra esta mensagem de ajuda.\n"
+                "`!help` - Mostras esta mensagem de ajuda.\n"
             )
             await message.channel.send(help_msg)
 
