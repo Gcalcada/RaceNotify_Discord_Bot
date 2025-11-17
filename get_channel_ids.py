@@ -1,8 +1,9 @@
 import requests
+import os
 from urllib.parse import urlparse
 
 # 🔐 Your YouTube API Key (replace if regenerated)
-API_KEY = "AIzaSyDIrgzURwNU8szgrsXRtEGpvYZQMuKcOoc"
+YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
 
 INPUT_FILE = "channels_input.txt"
 OUTPUT_FILE = "channel_ids_output.txt"
@@ -16,9 +17,9 @@ def extract_handle_or_path(url):
 
 def resolve_channel_id(identifier_type, value):
     if identifier_type == "handle":
-        url = f"https://www.googleapis.com/youtube/v3/channels?part=id&forHandle={value}&key={API_KEY}"
+        url = f"https://www.googleapis.com/youtube/v3/channels?part=id&forHandle={value}&key={YOUTUBE_API_KEY}"
     else:
-        url = f"https://www.googleapis.com/youtube/v3/channels?part=id&forUsername={value}&key={API_KEY}"
+        url = f"https://www.googleapis.com/youtube/v3/channels?part=id&forUsername={value}&key={YOUTUBE_API_KEY}"
 
     response = requests.get(url)
     if response.status_code != 200:

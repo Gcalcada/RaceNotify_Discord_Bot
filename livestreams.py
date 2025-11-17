@@ -1,7 +1,7 @@
 import requests
 import time
-
-API_KEY = "AIzaSyDIrgzURwNU8szgrsXRtEGpvYZQMuKcOoc"
+import os
+YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
 INPUT_FILE = "channels_input.txt"
 OUTPUT_FILE = "live_matches.txt"
 
@@ -16,7 +16,7 @@ def check_channel_live(channel_id):
         "channelId": channel_id,
         "eventType": "live",
         "type": "video",
-        "key": API_KEY,
+        "key": YOUTUBE_API_KEY,
         "maxResults": 1
     }
 
